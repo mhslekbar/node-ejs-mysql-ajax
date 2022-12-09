@@ -1,0 +1,123 @@
+<%-include('./inc/header')%>
+<div class="container">
+    <h1 class="text-center mt-3">Hello From Student Page</h1>
+
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addNewStudent">
+        Add
+    </button>
+
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center">
+            <thead class="bg-success text-white">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="data-of-student">
+              
+            </tbody>
+        </table>
+    </div>
+
+    <!-- START Add New Student Modal -->
+    
+    <div class="modal fade" id="addNewStudent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewStudentLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addNewStudentLabel">Add New Student</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="submitFormAddStudent(event)" id="formNewStudent">
+            <div class="modal-body">
+                <div class="error-msg"></div>
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                </div>
+                <div class="form-group mb-2">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                </div>
+                <div class="form-group mb-2">                       
+                    <input type="number" class="form-control" id="mno" name="mno" placeholder="Enter Mobile Number">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    
+    <!-- END Add New Student Modal -->
+        
+    <!-- START Edit Student Modal -->
+
+    <div class="modal fade" id="editStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editStudentModalLabel">Edit Student</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form onsubmit="submitFormEditStudent(event)" id="formEditStudent">
+                <div class="modal-body">
+                    <div class="error-msg"></div>
+                    <div class="form-group mb-2">
+                        <input type="hidden" class="form-control" name="id" id="id">
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="number" class="form-control" name="mno" id="mno" placeholder="Enter Mobile Number">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    <!-- END Edit Student Modal -->
+
+    <!-- START Delete Student Modal -->
+
+    <div class="modal fade" id="deleteStudentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteStudentModalLabel">Edit Student</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form onsubmit="submitFormDeleteStudent(event)" id="formDeleteStudent">
+                <div class="modal-body">
+                    <div class="error-msg"></div>
+                    <div class="form-group mb-2">
+                        <input type="hidden" class="form-control" name="id" id="id">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    <!-- END DELETE Student Modal -->
+
+</div>
+<%-include('./inc/footer')%>
